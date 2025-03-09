@@ -1,0 +1,3 @@
+🔗 Enlace público de Trello con las HU documentadas :https://trello.com/invite/b/67bdc19320dde8369b2cff9e/ATTI388c7955ceec2a429f86a3ca6aed83f206757C0E/app-de-prestamo-automatizado-de-materiales-universitarios 
+- 🔗 Enlace público de Figma con el diseño UI/UX.:https://www.figma.com/design/HOMMJzGLmH7Qx4KVwt3PWe/Untitled?node-id=0-1&t=Fgorocrt0XKs6NMN-1
+- 🔗 Enlace del repositorio en Git con los avances del sprint: https://github.com/alejandro538/programacion-movil-2025-a-g2
