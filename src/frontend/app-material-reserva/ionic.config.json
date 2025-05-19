@@ -1,0 +1,7 @@
+{
+  "name": "app-material-reserva",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
