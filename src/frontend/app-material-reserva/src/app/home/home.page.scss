@@ -1,27 +1,48 @@
-#container {
-  text-align: center;
+// home.page.scss
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+:host {
+  --ion-background-color: #121212; // fondo negro oscuro
+  --ion-text-color: #cce7ff;       // texto azul claro suave
+
+  display: block;
+  background-color: var(--ion-background-color);
+  color: var(--ion-text-color);
+  min-height: 100vh;
+  padding: 16px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+h2 {
+  color: #7ec8e3; // azul cálido suave
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+p {
+  color: #a3c7e8;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
 }
 
-#container a {
-  text-decoration: none;
+ion-button {
+  --background: #49759c;  // azul cálido medio
+  --color: #fff;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+
+  &:hover {
+    --background: #365a75;
+  }
+
+  &.ion-color-warning {
+    --background: #d67e00; // botón de color warning
+    &:hover {
+      --background: #aa6500;
+    }
+  }
+}
+
+ion-toolbar {
+  --background: #1f1f1f; // toolbar con fondo gris muy oscuro
+  --color: #cce7ff;      // texto azul claro
 }

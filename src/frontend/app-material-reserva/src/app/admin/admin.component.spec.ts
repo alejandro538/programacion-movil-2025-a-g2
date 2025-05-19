@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AdminComponent } from './admin.component';
+import { AdminComponent } from './admin.page';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;

@@ -1,0 +1,86 @@
+// admin.page.scss
+
+:host {
+  --ion-background-color: #121212; // fondo negro oscuro
+  --ion-text-color: #cce7ff;       // texto azul claro suave
+
+  display: block;
+  background-color: var(--ion-background-color);
+  color: var(--ion-text-color);
+  min-height: 100vh;
+  padding: 16px;
+}
+
+ion-toolbar {
+  --background: #1f1f1f; // toolbar con fondo gris muy oscuro
+  --color: #cce7ff;
+}
+
+ion-list {
+  background-color: #1f1f1f; // gris oscuro para la lista
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(126, 200, 227, 0.3);
+  margin-bottom: 1rem;
+}
+
+ion-item {
+  --background: transparent;
+  border-bottom: 1px solid #374955;
+
+  ion-label {
+    h2 {
+      color: #7ec8e3; // azul cálido
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    p {
+      color: #a3c7e8;
+      margin: 2px 0;
+      font-size: 0.9rem;
+    }
+
+    strong {
+      color: #d1e9ff;
+    }
+  }
+
+  ion-button {
+    margin-left: 6px;
+    font-weight: 600;
+    border-radius: 4px;
+
+    &[color="primary"] {
+      --background: #49759c;
+      --color: #fff;
+
+      &:hover:not(:disabled) {
+        --background: #365a75;
+      }
+    }
+
+    &[color="danger"] {
+      --background: #a33a3a;
+      --color: #fff;
+
+      &:hover:not(:disabled) {
+        --background: #7b2c2c;
+      }
+    }
+
+    &[color="success"] {
+      --background: #4a934a;
+      --color: #fff;
+
+      &:hover:not(:disabled) {
+        --background: #367336;
+      }
+    }
+
+    &:disabled {
+      --background: #374955;
+      --color: #9bb8d9;
+      cursor: not-allowed;
+    }
+  }
+}

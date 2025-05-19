@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { MaterialesComponent } from './materiales.component';
+import { MaterialesComponent } from './materiales.page';
 
 describe('MaterialesComponent', () => {
   let component: MaterialesComponent;

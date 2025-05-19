@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Administrar Reservas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>
+      <p>Rol actual: {{ authService.getUsuario()?.rol }}</p>
+      <p>Es admin? {{ authService.esAdmin() }}</p>
+    </ion-label>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let reserva of reservas">
+      <ion-label>
+        <h2>Reserva #{{ reserva.id }}</h2>
+        <p>Usuario: {{ reserva.usuarioNombre }}</p>
+        <p>Material: {{ reserva.materialNombre }}</p>
+        <p>Fecha Inicio: {{ reserva.fechaInicio }}</p>
+        <p>Fecha Fin: {{ reserva.fechaFin }}</p>
+        <p>Estado: <strong>{{ reserva.estado }}</strong></p>
+      </ion-label>
+
+      <ion-button size="small" color="primary" (click)="cambiarEstado(reserva, 'APROBADA')" [disabled]="reserva.estado === 'APROBADA'">
+        Aprobar
+      </ion-button>
+
+      <ion-button size="small" color="danger" (click)="cambiarEstado(reserva, 'CANCELADA')" [disabled]="reserva.estado === 'CANCELADA'">
+        Cancelar
+      </ion-button>
+
+      <ion-button size="small" color="success" (click)="cambiarEstado(reserva, 'FINALIZADA')" [disabled]="reserva.estado === 'FINALIZADA'">
+        Finalizar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { RegisterComponent } from './register.component';
+import { RegisterComponent } from './register.page';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
