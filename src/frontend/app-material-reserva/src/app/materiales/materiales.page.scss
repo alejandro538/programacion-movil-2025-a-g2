@@ -1,0 +1,87 @@
+// materiales.page.scss
+
+:host {
+  --ion-background-color: #121212;  // fondo negro oscuro
+  --ion-text-color: #cce7ff;        // azul muy claro para texto
+
+  display: block;
+  background-color: var(--ion-background-color);
+  color: var(--ion-text-color);
+  min-height: 100vh;
+  padding: 16px;
+}
+
+h2 {
+  color: #7ec8e3; // azul cálido suave
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+ion-list {
+  background-color: #1f1f1f; // gris muy oscuro para lista
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(126, 200, 227, 0.3);
+}
+
+ion-item {
+  --background: transparent;
+  border-bottom: 1px solid #374955; // azul oscuro suave para separar items
+
+  ion-label {
+    h3 {
+      color: #a3c7e8; // azul medio
+      font-weight: 700;
+    }
+    p {
+      color: #b0d4ff; // azul claro
+      font-size: 0.9rem;
+    }
+  }
+}
+
+ion-buttons {
+  ion-button {
+    --background: #49759c; // azul cálido medio
+    --color: #fff;
+    --border-radius: 4px;
+    font-weight: 600;
+    margin-left: 6px;
+
+    &:hover {
+      --background: #365a75; // azul más oscuro al hover
+    }
+  }
+
+  ion-button[color="danger"] {
+    --background: #a33a3a;
+    &:hover {
+      --background: #7b2c2c;
+    }
+  }
+
+  ion-button[color="warning"] {
+    --background: #d67e00;
+    &:hover {
+      --background: #aa6500;
+    }
+  }
+}
+
+ion-input {
+  color: var(--ion-text-color);
+  --placeholder-color: #7ca6d8; // azul tenue para placeholder
+  font-weight: 500;
+}
+
+ion-button[expand="block"] {
+  margin-top: 1rem;
+  --background: #5a9ad6; // azul cálido claro
+  --color: #fff;
+  font-weight: 700;
+
+  &:hover {
+    --background: #4179b9;
+  }
+}
