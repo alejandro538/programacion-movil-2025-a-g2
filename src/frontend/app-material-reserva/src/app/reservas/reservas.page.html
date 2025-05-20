@@ -1,84 +1,13 @@
-<h3>Nueva Reserva</h3>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>reservas</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-<div *ngIf="rolUsuario !== 'ADMIN'; else mensajeAdmin">
-  <form (ngSubmit)="guardarReserva()" #reservaForm="ngForm" novalidate>
-
-    <label for="fechaInicio">Fecha Inicio:</label>
-    <input
-      id="fechaInicio"
-      type="datetime-local"
-      name="fechaInicio"
-      [(ngModel)]="nuevaReserva.fechaInicio"
-      required
-      #fechaInicio="ngModel"
-      aria-describedby="fechaInicioError"
-    />
-    <div *ngIf="fechaInicio.invalid && fechaInicio.touched" id="fechaInicioError" class="text-danger">
-      La fecha de inicio es obligatoria.
-    </div>
-
-    <label for="fechaFin">Fecha Fin:</label>
-    <input
-      id="fechaFin"
-      type="datetime-local"
-      name="fechaFin"
-      [(ngModel)]="nuevaReserva.fechaFin"
-      required
-      #fechaFin="ngModel"
-      aria-describedby="fechaFinError"
-    />
-    <div *ngIf="fechaFin.invalid && fechaFin.touched" id="fechaFinError" class="text-danger">
-      La fecha de fin es obligatoria.
-    </div>
-
-    <label for="material">Material:</label>
-    <select
-      id="material"
-      name="material"
-      [(ngModel)]="nuevaReserva.materialId"
-      required
-      #material="ngModel"
-      aria-describedby="materialError"
-    >
-      <option value="" disabled selected>Seleccione un material</option>
-      <option *ngFor="let mat of materiales" [value]="mat.id">{{ mat.nombre }}</option>
-    </select>
-    <div *ngIf="material.invalid && material.touched" id="materialError" class="text-danger">
-      Debe seleccionar un material.
-    </div>
-
-    <button type="submit" [disabled]="reservaForm.invalid">Guardar Reserva</button>
-  </form>
-</div>
-
-<ng-template #mensajeAdmin>
-  <p class="text-danger">Los administradores no pueden hacer reservas.</p>
-</ng-template>
-
-<hr />
-
-<h3>Mis Reservas</h3>
-
-<div *ngIf="reservas.length === 0">
-  <p>No tienes reservas registradas.</p>
-</div>
-
-<ul class="lista-reservas">
-  <li *ngFor="let reserva of reservas" class="reserva-card">
-    <h4>Material: {{ reserva.materialNombre }}</h4>
-    <p><strong>Usuario:</strong> {{ reserva.usuarioNombre }}</p>
-    <p><strong>Fecha Inicio:</strong> {{ reserva.fechaInicio | date:'medium' }}</p>
-    <p><strong>Fecha Fin:</strong> {{ reserva.fechaFin | date:'medium' }}</p>
-    <p><strong>Estado:</strong> {{ reserva.estado }}</p>
-
-    <button
-      *ngIf="reserva.estado === 'PENDIENTE'"
-      type="button"
-      (click)="actualizarEstado(reserva, 'CANCELADA')"
-      class="cancelar-btn"
-      aria-label="Cancelar reserva"
-    >
-      Cancelar Reserva
-    </button>
-  </li>
-</ul>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">reservas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>

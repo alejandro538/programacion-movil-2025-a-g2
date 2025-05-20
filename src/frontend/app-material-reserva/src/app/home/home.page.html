@@ -1,23 +1,20 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Inicio</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="cerrarSesion()">Cerrar sesión</ion-button>
-    </ion-buttons>
+    <ion-title>
+      Blank
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h2>Bienvenido, {{ usuario?.nombre }}</h2>
-  <p>Rol: {{ usuario?.rol }}</p>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-  <!-- Botones para todos los usuarios -->
-  <ion-button expand="block" routerLink="/materiales">Ver materiales</ion-button>
-  <ion-button expand="block" routerLink="/reservas">Mis reservas</ion-button>
-
-  <!-- Solo para ADMIN -->
-  <div *ngIf="usuario?.rol === 'ADMIN'">
-    <ion-button expand="block" color="warning" routerLink="/usuarios">Ver usuarios</ion-button>
-    <ion-button expand="block" color="warning" routerLink="/admin">Panel Admin</ion-button>
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
 </ion-content>

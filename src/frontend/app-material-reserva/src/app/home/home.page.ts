@@ -1,24 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService, Usuario } from '../services/auth.service';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
   standalone: false,
 })
-export class HomePage implements OnInit {
-  usuario: Usuario | null = null;
+export class HomePage {
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor() {}
 
-  ngOnInit() {
-    this.usuario = this.authService.getUsuario();
-  }
-
-  cerrarSesion() {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  }
 }
