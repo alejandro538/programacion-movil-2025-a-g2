@@ -13,12 +13,13 @@ import org.springframework.http.ResponseEntity; // Para construir respuestas HTT
 import org.springframework.web.bind.annotation.*; // Para anotaciones REST
 
 import java.util.List; // Para listas
+import java.util.Map;
 import java.util.Optional; // Para manejo seguro de nulos
 import java.util.stream.Collectors; // Para transformar listas con streams
 
 @RestController // Indica que esta clase es un controlador REST
 @RequestMapping("/api/usuarios") // Ruta base para todos los endpoints de usuarios
-@CrossOrigin(origins = "http://localhost:4200") // Permite llamadas desde frontend Angular en localhost:4200
+//@CrossOrigin(origins = "http://localhost:4200") // Permite llamadas desde frontend Angular en localhost:4200
 public class UsuarioController {
 
     @Autowired // Inyecta automáticamente el servicio de usuario
@@ -74,14 +75,32 @@ public class UsuarioController {
     }
 
     // ADMIN: Cambiar rol de usuario
-    @PutMapping("/admin/usuarios/{id}/rol") // Maneja PUT para cambiar rol, ruta especial de admin
-    public ResponseEntity<Usuario> actualizarRolUsuario(@PathVariable Long id, @RequestBody Rol nuevoRol) {
-        Usuario usuario = usuarioService.getUsuarioById(id) // Busca usuario por id
-                .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado")); // Si no existe lanza excepción
-        usuario.setRol(nuevoRol); // Cambia el rol al nuevo rol recibido
-        Usuario actualizado = usuarioService.saveUsuario(usuario); // Guarda el usuario actualizado
-        return ResponseEntity.ok(actualizado); // Devuelve 200 OK con usuario actualizado
+      @PutMapping("/admin/usuarios/{id}/rol")
+public ResponseEntity<?> actualizarRolUsuario(@PathVariable Long id, @RequestBody Map<String, String> body) {
+    try {
+        String rolStr = body.get("rol");
+        if (rolStr == null) {
+            return ResponseEntity.badRequest().body("Campo 'rol' es requerido.");
+        }
+
+        Rol nuevoRol = Rol.valueOf(rolStr.toUpperCase()); // convierte string a enum
+        Optional<Usuario> usuarioOpt = usuarioService.getUsuarioById(id);
+
+        if (usuarioOpt.isEmpty()) {
+            return ResponseEntity.status(404).body("Usuario no encontrado con ID: " + id);
+        }
+
+        Usuario usuario = usuarioOpt.get();
+        usuario.setRol(nuevoRol);
+        Usuario actualizado = usuarioService.saveUsuario(usuario);
+
+        return ResponseEntity.ok(actualizado);
+    } catch (IllegalArgumentException e) {
+        return ResponseEntity.badRequest().body("Rol inválido. Usa 'USER' o 'ADMIN'.");
+    } catch (Exception e) {
+        return ResponseEntity.status(500).body("Error interno: " + e.getMessage());
     }
+}
 
     // Obtener reservas por usuario
     @GetMapping("/{id}/reservas") // Maneja GET /api/usuarios/{id}/reservas, para obtener reservas del usuario

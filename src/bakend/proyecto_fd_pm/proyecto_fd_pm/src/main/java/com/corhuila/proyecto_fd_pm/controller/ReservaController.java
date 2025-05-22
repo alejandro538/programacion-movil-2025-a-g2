@@ -15,7 +15,7 @@ import java.util.Map; // Mapa para obtener campos dinámicos como el estado
 
 @RestController // Define esta clase como un controlador REST
 @RequestMapping("/api/reservas") // Establece la ruta base del endpoint
-@CrossOrigin(origins = "http://localhost:4200") // Permite peticiones CORS desde localhost:4200
+//@CrossOrigin(origins = "http://localhost:4200") // Permite peticiones CORS desde localhost:4200
 public class ReservaController { // Clase del controlador de reservas
 
     @Autowired // Inyección de dependencias del servicio de reservas

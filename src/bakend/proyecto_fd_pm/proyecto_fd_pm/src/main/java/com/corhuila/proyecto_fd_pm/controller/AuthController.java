@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*; // Importa las anotaciones del
 
 @RestController // Marca la clase como un controlador REST
 @RequestMapping("/api/auth") // Ruta base para este controlador
-@CrossOrigin(origins = "*") // Permite peticiones desde cualquier origen
+//@CrossOrigin(origins = "*") // Permite peticiones desde cualquier origen
 public class AuthController { // Define la clase AuthController
 
     @Autowired // Inyección de dependencia para el repositorio de usuarios

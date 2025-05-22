@@ -14,7 +14,7 @@ import java.util.stream.Collectors; // Importa Collectors para convertir listas
 
 @RestController // Marca la clase como un controlador REST
 @RequestMapping("/api/materiales") // Ruta base del controlador
-@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8100"}) // Permite solicitudes desde estas URLs
+//@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8100"}) // Permite solicitudes desde estas URLs
 public class MaterialController { // Define la clase MaterialController
 
     @Autowired // Inyección del servicio de Material

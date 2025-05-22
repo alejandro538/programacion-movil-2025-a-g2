@@ -7,7 +7,7 @@ import { Usuario } from './auth.service';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrl = 'http://localhost:8080/api/usuarios';
+  private apiUrl = 'http://175.100.21.105:8080/api/usuarios';
 
   constructor(private http: HttpClient) {}
 
@@ -15,7 +15,13 @@ export class UsuarioService {
   getTodos(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.apiUrl);
   }
-  actualizarRolUsuario(id: number, rol: 'USER' | 'ADMIN'): Observable<Usuario> {
-  return this.http.put<Usuario>(`${this.apiUrl}/admin/usuarios/${id}/rol`, rol);
+actualizarRolUsuario(id: number, rol: 'USER' | 'ADMIN'): Observable<Usuario> {
+  return this.http.put<Usuario>(
+    `${this.apiUrl}/admin/usuarios/${id}/rol`,
+    { rol: rol }, // Aquí debe llamarse "rol", no "name"
+    { headers: { 'Content-Type': 'application/json' } }
+  );
 }
-}
+
+
+  }
