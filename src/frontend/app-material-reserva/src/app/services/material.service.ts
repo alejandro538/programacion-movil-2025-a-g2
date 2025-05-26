@@ -20,7 +20,7 @@ export interface NuevoMaterial {
   providedIn: 'root'
 })
 export class MaterialService {
-  private apiUrl = 'http://175.100.21.105:8080/api/materiales';
+  private apiUrl = 'https://w6x4dvhq-8080.use.devtunnels.ms/api/materiales';
 
   constructor(private http: HttpClient) {}
 
