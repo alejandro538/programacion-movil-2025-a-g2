@@ -17,18 +17,10 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(request -> {
                 CorsConfiguration config = new CorsConfiguration();
-                config.setAllowedOrigins(Arrays.asList(
-                    "http://localhost:8100",
-                    "http://172.23.64.1:8100",
-                    "http://192.168.150.25:8100",
-                    "http://175.100.21.105:8100", // ← IP del frontend en red local
-                    "http://localhost",
-                    "capacitor://localhost",
-                    "ionic://localhost"
-                ));
+                config.setAllowedOriginPatterns(Arrays.asList("*"));
                 config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-                config.setAllowedHeaders(Arrays.asList("*"));
-                config.setAllowCredentials(true);
+                config.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
+                config.setAllowCredentials(false);
                 return config;
             }))
             .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
