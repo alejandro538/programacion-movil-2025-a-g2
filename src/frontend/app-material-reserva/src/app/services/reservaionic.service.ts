@@ -26,7 +26,7 @@ export interface ReservaInput {
   providedIn: 'root'
 })
 export class ReservaService {
-  private apiUrl = 'http://175.100.21.105:8080/api/reservas';
+  private apiUrl = 'https://w6x4dvhq-8080.use.devtunnels.ms/api/reservas';
 
   constructor(private http: HttpClient) {}
 
