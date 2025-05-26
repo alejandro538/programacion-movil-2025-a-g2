@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://175.100.21.105:8080/api/auth',
+  apiUrl: 'https://w6x4dvhq-8080.use.devtunnels.ms/api/auth',
 };
